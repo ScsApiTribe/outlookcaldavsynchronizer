@@ -63,12 +63,23 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
 
     public IOptionsViewModel CreateTemplate (Contracts.Options options, GeneralOptions generalOptions, ProfileType type)
     {
-      var optionsViewModel = new MultipleOptionsTemplateViewModel (
+            IServerSettingsTemplateViewModel serverSettingsVM;
+            if (IsGoogleProfile(options))
+            {
+                serverSettingsVM = (IServerSettingsTemplateViewModel)new GoogleServerSettingsTemplateViewModel(_outlookAccountPasswordProvider);
+            }
+            else if (IsSwisscomProfile(options))
+            {
+                serverSettingsVM = (IServerSettingsTemplateViewModel)new SwisscomServerSettingsTemplateViewModel(_outlookAccountPasswordProvider);
+            }
+            else
+            {
+                serverSettingsVM = new ServerSettingsTemplateViewModel(_outlookAccountPasswordProvider);
+            }
+            var optionsViewModel = new MultipleOptionsTemplateViewModel (
          _optionsViewModelParent,
          generalOptions,
-         IsGoogleProfile (options)
-             ? (IServerSettingsTemplateViewModel) new GoogleServerSettingsTemplateViewModel (_outlookAccountPasswordProvider)
-             : new ServerSettingsTemplateViewModel (_outlookAccountPasswordProvider),
+         serverSettingsVM,
          type,
          _optionTasks);
 
@@ -78,14 +89,25 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
 
     private IOptionsViewModel Create (CalDavSynchronizer.Contracts.Options options, GeneralOptions generalOptions)
     {
+            Func<ISettingsFaultFinder, ICurrentOptions, IServerSettingsViewModel> serverSettingsVM;
+            if (IsGoogleProfile(options))
+            {
+                serverSettingsVM = CreateGoogleServerSettingsViewModel;
+            }
+            else if (IsSwisscomProfile(options))
+            {
+                serverSettingsVM = CreateSwisscomServerSettingsViewModel;
+            }
+            else
+            {
+                serverSettingsVM = new Func<ISettingsFaultFinder, ICurrentOptions, IServerSettingsViewModel>(CreateServerSettingsViewModel);
+            }
 
-      var optionsViewModel = new GenericOptionsViewModel (
+            var optionsViewModel = new GenericOptionsViewModel (
           _optionsViewModelParent,
           generalOptions,
           _outlookAccountPasswordProvider,
-          IsGoogleProfile (options)
-            ? CreateGoogleServerSettingsViewModel
-            : new Func<ISettingsFaultFinder, ICurrentOptions, IServerSettingsViewModel> (CreateServerSettingsViewModel),
+          serverSettingsVM,
           CreateMappingConfigurationViewModelFactory, _optionTasks);
 
       optionsViewModel.SetOptions (options);
@@ -99,12 +121,21 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
              options.ServerAdapterType == ServerAdapterType.GoogleContactApi;
     }
 
+    private static bool IsSwisscomProfile(Contracts.Options options)
+        {
+            return options.ServerAdapterType == ServerAdapterType.WebDavHttpClientBasedWithSwisscomOAuth;
+        }
+
     IServerSettingsViewModel CreateGoogleServerSettingsViewModel (ISettingsFaultFinder settingsFaultFinder, ICurrentOptions currentOptions)
     {
       return new GoogleServerSettingsViewModel (settingsFaultFinder, currentOptions);
     }
 
-    IServerSettingsViewModel CreateServerSettingsViewModel (ISettingsFaultFinder settingsFaultFinder, ICurrentOptions currentOptions)
+        IServerSettingsViewModel CreateSwisscomServerSettingsViewModel(ISettingsFaultFinder settingsFaultFinder, ICurrentOptions currentOptions)
+        {
+            return new SwisscomServerSettingsViewModel(settingsFaultFinder, currentOptions, _outlookAccountPasswordProvider);
+        }
+        IServerSettingsViewModel CreateServerSettingsViewModel (ISettingsFaultFinder settingsFaultFinder, ICurrentOptions currentOptions)
     {
       return new ServerSettingsViewModel (settingsFaultFinder, currentOptions, _outlookAccountPasswordProvider);
     }

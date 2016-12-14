@@ -15,23 +15,18 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Xml.Serialization;
+using System.Windows.Controls;
 
-namespace CalDavSynchronizer.Contracts
+namespace CalDavSynchronizer.Ui.Options.Views
 {
-  public enum ServerAdapterType
+  /// <summary>
+  ///   Interaction logic for ReportView.xaml
+  /// </summary>
+  public partial class SwisscomServerSettingsView : UserControl
   {
-    [XmlEnum ("Default")]
-    WebDavHttpClientBased,
-
-    [XmlEnum ("GoogleOAuth")]
-    WebDavHttpClientBasedWithGoogleOAuth,
-
-    [XmlEnum ("SwisscomOAuth")]
-    WebDavHttpClientBasedWithSwisscomOAuth,
-
-    GoogleTaskApi,
-
-    GoogleContactApi
+    public SwisscomServerSettingsView ()
+    {
+      InitializeComponent();
+    }
   }
 }

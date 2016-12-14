@@ -29,6 +29,7 @@ namespace CalDavSynchronizer.Contracts
     Landmarks,
     Sogo,
     Cozy,
-    Nextcloud
+    Nextcloud,
+    Swisscom
   }
 }

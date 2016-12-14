@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalDavSynchronizer.OAuth.Go
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalDavSynchronizer.CustomInstaller", "CalDavSynchronizer.CustomInstaller\CalDavSynchronizer.CustomInstaller.csproj", "{0C682D77-1CBB-4336-8F6E-CDDA9B6C0C97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalDavSynchronizer.OAuth.Swisscom", "CalDavSynchronizer.OAuth.Swisscom\CalDavSynchronizer.OAuth.Swisscom.csproj", "{424F803E-B641-4473-B9C3-B8DF40E0B3B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{0C682D77-1CBB-4336-8F6E-CDDA9B6C0C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C682D77-1CBB-4336-8F6E-CDDA9B6C0C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C682D77-1CBB-4336-8F6E-CDDA9B6C0C97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{424F803E-B641-4473-B9C3-B8DF40E0B3B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424F803E-B641-4473-B9C3-B8DF40E0B3B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424F803E-B641-4473-B9C3-B8DF40E0B3B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424F803E-B641-4473-B9C3-B8DF40E0B3B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

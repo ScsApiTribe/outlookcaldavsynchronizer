@@ -124,6 +124,26 @@
     <Reference Include="DDay.iCal">
       <HintPath>..\packages\DDay.iCal.1.0.2.575\lib\DDay.iCal.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.Client, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Client.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.Client.UI, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Client.UI.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.Client.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.ClientAuthorization, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.ClientAuthorization.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.ClientAuthorization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Google.Apis, Version=1.19.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.19.0\lib\net45\Google.Apis.dll</HintPath>
       <Private>True</Private>
@@ -350,6 +370,7 @@
     <Compile Include="Ui\DelegateCommandHandlingRequerySuggested.cs" />
     <Compile Include="Ui\NullUiService.cs" />
     <Compile Include="Ui\Options\AutoDiscoverResultStatus.cs" />
+    <Compile Include="Ui\Options\BulkOptions\ViewModels\SwisscomServerSettingsTemplateViewModel.cs" />
     <Compile Include="Ui\Options\BulkOptions\ViewModels\GoogleServerSettingsTemplateViewModel.cs" />
     <Compile Include="Ui\Options\BulkOptions\ViewModels\IServerSettingsTemplateViewModel.cs" />
     <Compile Include="Ui\Options\BulkOptions\ViewModels\ServerResources.cs" />
@@ -368,10 +389,14 @@
     <Compile Include="Ui\Options\ResourceSelection\ViewModels\CalendarDataViewModel.cs" />
     <Compile Include="Ui\Options\ResourceSelection\ViewModels\TaskListDataViewModel.cs" />
     <Compile Include="Ui\Options\BulkOptions\ViewModels\MultipleOptionsTemplateViewModel.cs" />
+    <Compile Include="Ui\Options\ViewModels\SwisscomServerSettingsViewModel.cs" />
     <Compile Include="Ui\Options\ViewModels\ISubOptionsViewModel.cs" />
     <Compile Include="Ui\Options\ViewModels\ITreeNodeViewModel.cs" />
     <Compile Include="Ui\Options\ViewModels\Mapping\CustomPropertyMappingViewModel.cs" />
     <Compile Include="Ui\Options\ViewModels\TimeRangeViewModel.cs" />
+    <Compile Include="Ui\Options\Views\SwisscomServerSettingsView.xaml.cs">
+      <DependentUpon>SwisscomServerSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Options\Views\Mapping\CustomPropertyMappingView.xaml.cs">
       <DependentUpon>CustomPropertyMappingView.xaml</DependentUpon>
     </Compile>
@@ -749,12 +774,18 @@
     <Content Include="Resources\LogoBanner.bmp" />
     <Resource Include="Resources\ExpandAll.png" />
     <Resource Include="Resources\logo_nextcloud.png" />
+    <None Include="Resources\logo_swisscom.bmp" />
+    <Content Include="Resources\logo_swisscom.png" />
     <Content Include="Resources\outlookcaldavsynchronizerlogoarrow.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CalDavSynchronizer.OAuth.Google\CalDavSynchronizer.OAuth.Google.csproj">
       <Project>{230914cf-6ff1-4b09-a831-c37c6b41d127}</Project>
       <Name>CalDavSynchronizer.OAuth.Google</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CalDavSynchronizer.OAuth.Swisscom\CalDavSynchronizer.OAuth.Swisscom.csproj">
+      <Project>{424f803e-b641-4473-b9c3-b8df40e0b3b3}</Project>
+      <Name>CalDavSynchronizer.OAuth.Swisscom</Name>
     </ProjectReference>
     <ProjectReference Include="..\GenSync\GenSync.csproj">
       <Project>{76c932e7-eca5-4010-b602-2104327ee5ee}</Project>
@@ -768,6 +799,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Ui\Options\BulkOptions\Views\ServerSettingsTemplateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ui\Options\Views\SwisscomServerSettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

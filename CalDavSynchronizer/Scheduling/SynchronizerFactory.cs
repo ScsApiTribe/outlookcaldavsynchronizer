@@ -244,6 +244,7 @@ namespace CalDavSynchronizer.Scheduling
       {
         case ServerAdapterType.WebDavHttpClientBased:
         case ServerAdapterType.WebDavHttpClientBasedWithGoogleOAuth:
+        case ServerAdapterType.WebDavHttpClientBasedWithSwisscomOAuth:
           var productAndVersion = GetProductAndVersion();
           return new DataAccess.HttpClientBasedClient.WebDavClient (
               () => CreateHttpClient (username, password, serverUrl, timeout, serverAdapterType, proxyOptions, preemptiveAuthentication, forceBasicAuthentication, enableClientCertificate),

@@ -188,6 +188,10 @@
         <DataTemplate DataType="{x:Type viewModels:GoogleServerSettingsViewModel}">
           <views:GoogleServerSettingsView />
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModels:SwisscomServerSettingsViewModel}">
+          <views:SwisscomServerSettingsView />
+        </DataTemplate>
         
         <DataTemplate DataType="{x:Type viewModels:OutlookFolderViewModel}">
           <views:OutlookFolderView />
@@ -204,7 +208,6 @@
         <DataTemplate DataType="{x:Type bulkOptionsViewModels:GoogleServerSettingsTemplateViewModel}">
           <bulkOptionsViews:GoogleServerSettingsTemplateView />
         </DataTemplate>
-
 
         <ControlTemplate TargetType="ContentControl" x:Key="OptionsControlTemplate">
           <DockPanel>

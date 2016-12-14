@@ -168,6 +168,8 @@ namespace CalDavSynchronizer.Contracts
           return "https://yourdomain.cozycloud.cc/public/sync/principals/me/";
         case ProfileType.Nextcloud:
           return "https://server.example/nextcloud/remote.php/dav/";
+        case ProfileType.Swisscom:
+            return "https://apigw-test.it.bwns.ch/v2/carddav/";
         default:
           return null;
       }
