@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:CalDavSynchronizer.Ui.Options.ViewModels"
+             xmlns:views="clr-namespace:CalDavSynchronizer.Ui.Options.Views"
              mc:Ignorable="d"
              d:DataContext="{x:Static viewModels:SwisscomServerSettingsViewModel.DesignInstance}"
              >
@@ -30,17 +31,13 @@
 
         <TextBlock Grid.Row="2" Grid.Column="0">Username:</TextBlock>
         <TextBox Text="{Binding UserName}"  Grid.Row="2" Grid.Column="2" />
+          
         <TextBlock Grid.Row="3" Grid.Column="0">Password:</TextBlock>
-        <PasswordBox x:Name="_passwordBox" IsEnabled="True" PasswordChar="*" Grid.Row="3" Grid.Column="2" />
+        <PasswordBox x:Name="_passwordBox" IsEnabled="True" PasswordChar="*" Grid.Row="3" Grid.Column="2"/>
+          
       </Grid>
-      <DockPanel >
-        <DockPanel.Resources>
-          <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></BooleanToVisibilityConverter>
-        </DockPanel.Resources>
         <Button DockPanel.Dock="Right" Command="{Binding TestConnectionCommand}" HorizontalAlignment="Right">Test settings</Button>
-                <Button DockPanel.Dock="Right" Command="{Binding GetAccountSettingsCommand}" HorizontalAlignment="Right">Get account settings</Button>
-                <UIElement></UIElement>
-      </DockPanel>
+        <Button DockPanel.Dock="Right" Command="{Binding GetAccountSettingsCommand}" HorizontalAlignment="Right">Get account settings</Button>
     </DockPanel>
   </GroupBox>
 </UserControl>

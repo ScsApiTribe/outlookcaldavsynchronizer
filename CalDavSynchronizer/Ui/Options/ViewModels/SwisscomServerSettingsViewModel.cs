@@ -35,7 +35,7 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
 
         private string _calenderUrl;
         private string _emailAddress;
-        private SecureString _password;
+        private SecureString _password = new SecureString();
         private bool _useAccountPassword;
         private string _userName;
         private readonly ISettingsFaultFinder _settingsFaultFinder;

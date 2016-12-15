@@ -14,7 +14,10 @@
 // 
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using CalDavSynchronizer.Ui.Options.ViewModels;
+using CalDavSynchronizer.Utilities;
 using System;
+using System.Security;
 using System.Windows.Controls;
 
 namespace CalDavSynchronizer.Ui.Options.Views
@@ -24,9 +27,32 @@ namespace CalDavSynchronizer.Ui.Options.Views
   /// </summary>
   public partial class SwisscomServerSettingsView : UserControl
   {
+    private SwisscomServerSettingsViewModel _viewModel;
+
     public SwisscomServerSettingsView ()
     {
       InitializeComponent();
+      DataContextChanged += ServerSettingsView_DataContextChanged;
+      _passwordBox.PasswordChanged += PasswordBox_PasswordChanged;
     }
-  }
+
+    private void PasswordBox_PasswordChanged (object sender, System.Windows.RoutedEventArgs e)
+    {
+        if (null != _viewModel)
+        {
+            _viewModel.Password = _passwordBox.SecurePassword;
+        }
+    }
+
+    private void ServerSettingsView_DataContextChanged (object sender, System.Windows.DependencyPropertyChangedEventArgs e)
+    {
+      _viewModel = e.NewValue as SwisscomServerSettingsViewModel;
+      if (_viewModel != null)
+      {
+        // Password is just a OneWayBinding. Therefore just set the initial value
+        _passwordBox.Password = SecureStringUtility.ToUnsecureString (_viewModel.Password);
+      }
+    }
+
+    }
 }
