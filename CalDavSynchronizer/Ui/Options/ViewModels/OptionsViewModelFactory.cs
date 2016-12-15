@@ -131,11 +131,11 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
       return new GoogleServerSettingsViewModel (settingsFaultFinder, currentOptions);
     }
 
-        IServerSettingsViewModel CreateSwisscomServerSettingsViewModel(ISettingsFaultFinder settingsFaultFinder, ICurrentOptions currentOptions)
-        {
-            return new SwisscomServerSettingsViewModel(settingsFaultFinder, currentOptions, _outlookAccountPasswordProvider);
-        }
-        IServerSettingsViewModel CreateServerSettingsViewModel (ISettingsFaultFinder settingsFaultFinder, ICurrentOptions currentOptions)
+    IServerSettingsViewModel CreateSwisscomServerSettingsViewModel(ISettingsFaultFinder settingsFaultFinder, ICurrentOptions currentOptions)
+    {
+        return new SwisscomServerSettingsViewModel(settingsFaultFinder, currentOptions, _outlookAccountPasswordProvider);
+    }
+    IServerSettingsViewModel CreateServerSettingsViewModel (ISettingsFaultFinder settingsFaultFinder, ICurrentOptions currentOptions)
     {
       return new ServerSettingsViewModel (settingsFaultFinder, currentOptions, _outlookAccountPasswordProvider);
     }

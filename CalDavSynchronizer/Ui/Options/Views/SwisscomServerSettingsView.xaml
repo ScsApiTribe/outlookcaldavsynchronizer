@@ -31,8 +31,7 @@
         <TextBlock Grid.Row="2" Grid.Column="0">Username:</TextBlock>
         <TextBox Text="{Binding UserName}"  Grid.Row="2" Grid.Column="2" />
         <TextBlock Grid.Row="3" Grid.Column="0">Password:</TextBlock>
-        <TextBox Text="{Binding Password}"  Grid.Row="3" Grid.Column="2" />
-
+        <PasswordBox x:Name="_passwordBox" IsEnabled="True" PasswordChar="*" Grid.Row="3" Grid.Column="2" />
       </Grid>
       <DockPanel >
         <DockPanel.Resources>

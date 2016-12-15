@@ -25,11 +25,7 @@ using CalDavSynchronizer.Utilities;
 using log4net;
 using Microsoft.Office.Interop.Outlook;
 using Exception = System.Exception;
-using DotNetOpenAuth.OAuth2;
 using CalDavSynchronizer.OAuth.Swisscom;
-using System.Net;
-using System.IO;
-using Newtonsoft.Json;
 
 namespace CalDavSynchronizer.Ui.Options.ViewModels
 {
@@ -138,6 +134,8 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
             CalenderUrl = options.CalenderUrl;
             UserName = options.UserName;
             Password = options.Password;
+            EmailAddress = options.EmailAddress;
+            UseAccountPassword = options.UseAccountPassword;
         }
 
         public void FillOptions(Contracts.Options options)
@@ -165,42 +163,11 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
             _getAccountSettingsCommand.SetCanExecute(false);
             try
             {
-                var authServer = new AuthorizationServerDescription()
-                {
-                    AuthorizationEndpoint = new Uri("https://consent.sirius.test1.swisscom.com/c/oauth2/auth"),
-                    TokenEndpoint = new Uri("https://apigw-test.it.bwns.ch/oauth2/token")
-                };
-                var client = new UserAgentClient(authServer, "SInWLXPnP8AADGSYSB0OdUKDxYvI6quy", "0JRbtFLcgKCxQup5");
-                var authorizePopup = new Authorize(client);
-                //authorizePopup.Owner = this;
-                bool? result = authorizePopup.ShowDialog();
-                if (result.HasValue && result.Value)
-                {
-                    var request = (HttpWebRequest)WebRequest.Create("https://apigw-test.it.bwns.ch/v2/carddav");
-                    client.AuthorizeRequest(request, authorizePopup.Authorization);
-                    using (var resourceResponse = request.GetResponse())
-                    {
-                        using (var responseStream = new StreamReader(resourceResponse.GetResponseStream()))
-                        {
-                            var json = responseStream.ReadToEnd();
-                            var credentials = JsonConvert.DeserializeObject<Credentials>(json);
-                            UserName = credentials.Username;
-                            Password = SecureStringUtility.ToSecureString(credentials.Password);
-                            CalenderUrl = credentials.Url;
-                        }
-                    }
-                }
-                //UserName = "blah";
-                //Password = SecureStringUtility.ToSecureString("blah");
-                //CalenderUrl = "url";
-                /*
-                var serverAccountSettings = _outlookAccountPasswordProvider.GetAccountServerSettings(_currentOptions.FolderAccountName);
-                string path = !string.IsNullOrEmpty(CalenderUrl) ? new Uri(CalenderUrl).AbsolutePath : string.Empty;
-                bool success;
-                var dnsDiscoveredUrl = OptionTasks.DoSrvLookup(EmailAddress, OlItemType.olAppointmentItem, out success);
-                CalenderUrl = success ? dnsDiscoveredUrl : "https://" + serverAccountSettings.ServerString + path;
-                UserName = serverAccountSettings.UserName;
-                */
+                var scsOauth = new SwisscomOauth("SInWLXPnP8AADGSYSB0OdUKDxYvI6quy", "0JRbtFLcgKCxQup5");
+                var credentials = scsOauth.GetCredentials();
+                UserName = credentials.Username;
+                Password = SecureStringUtility.ToSecureString(credentials.Password);
+                CalenderUrl = credentials.Url;
             }
             catch (Exception x)
             {
@@ -216,25 +183,27 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
             }
         }
 
-        private async void TestConnectionAsync()
+        private void TestConnectionAsync()
         {
-            _testConnectionCommand.SetCanExecute(false);
-            try
-            {
-                CalenderUrl = await OptionTasks.TestWebDavConnection(_currentOptions, _settingsFaultFinder, CalenderUrl, UserName);
-            }
-            catch (Exception x)
-            {
-                s_logger.Error("Exception while testing the connection.", x);
-                string message = null;
-                for (Exception ex = x; ex != null; ex = ex.InnerException)
-                    message += ex.Message + Environment.NewLine;
-                MessageBox.Show(message, OptionTasks.ConnectionTestCaption);
-            }
-            finally
-            {
-                _testConnectionCommand.SetCanExecute(true);
-            }
+            MessageBox.Show("Username: " + UserName + "\nPassword: " + SecureStringUtility.ToUnsecureString(Password));
+            return;
+            //_testConnectionCommand.SetCanExecute(false);
+            //try
+            //{
+            //    CalenderUrl = await OptionTasks.TestWebDavConnection(_currentOptions, _settingsFaultFinder, CalenderUrl, UserName);
+            //}
+            //catch (Exception x)
+            //{
+            //    s_logger.Error("Exception while testing the connection.", x);
+            //    string message = null;
+            //    for (Exception ex = x; ex != null; ex = ex.InnerException)
+            //        message += ex.Message + Environment.NewLine;
+            //    MessageBox.Show(message, OptionTasks.ConnectionTestCaption);
+            //}
+            //finally
+            //{
+            //    _testConnectionCommand.SetCanExecute(true);
+            //}
         }
 
         private async void CreateDavResource()
