@@ -131,6 +131,7 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
 
         public void SetOptions(Contracts.Options options)
         {
+            options.PreemptiveAuthentication = false;
             CalenderUrl = options.CalenderUrl;
             UserName = options.UserName;
             Password = options.Password;
@@ -140,6 +141,7 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
 
         public void FillOptions(Contracts.Options options)
         {
+            options.PreemptiveAuthentication = false;
             options.CalenderUrl = _calenderUrl;
             options.UserName = _userName;
             options.Password = _password;
@@ -183,27 +185,27 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
             }
         }
 
-        private void TestConnectionAsync()
+        private async void TestConnectionAsync()
         {
-            MessageBox.Show("Username: " + UserName + "\nPassword: " + SecureStringUtility.ToUnsecureString(Password));
-            return;
-            //_testConnectionCommand.SetCanExecute(false);
-            //try
-            //{
-            //    CalenderUrl = await OptionTasks.TestWebDavConnection(_currentOptions, _settingsFaultFinder, CalenderUrl, UserName);
-            //}
-            //catch (Exception x)
-            //{
-            //    s_logger.Error("Exception while testing the connection.", x);
-            //    string message = null;
-            //    for (Exception ex = x; ex != null; ex = ex.InnerException)
-            //        message += ex.Message + Environment.NewLine;
-            //    MessageBox.Show(message, OptionTasks.ConnectionTestCaption);
-            //}
-            //finally
-            //{
-            //    _testConnectionCommand.SetCanExecute(true);
-            //}
+            //MessageBox.Show("Username: " + UserName + "\nPassword: " + SecureStringUtility.ToUnsecureString(Password));
+            //return;
+            _testConnectionCommand.SetCanExecute(false);
+            try
+            {
+                CalenderUrl = await OptionTasks.TestWebDavConnection(_currentOptions, _settingsFaultFinder, CalenderUrl, UserName);
+            }
+            catch (Exception x)
+            {
+                s_logger.Error("Exception while testing the connection.", x);
+                string message = null;
+                for (Exception ex = x; ex != null; ex = ex.InnerException)
+                    message += ex.Message + Environment.NewLine;
+                MessageBox.Show(message, OptionTasks.ConnectionTestCaption);
+            }
+            finally
+            {
+                _testConnectionCommand.SetCanExecute(true);
+            }
         }
 
         private async void CreateDavResource()

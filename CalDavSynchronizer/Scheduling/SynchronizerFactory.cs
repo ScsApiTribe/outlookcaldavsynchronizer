@@ -290,6 +290,7 @@ namespace CalDavSynchronizer.Scheduling
       switch (serverAdapterType)
       {
         case ServerAdapterType.WebDavHttpClientBased:
+        case ServerAdapterType.WebDavHttpClientBasedWithSwisscomOAuth:
           var httpClientHandler = new HttpClientHandler();
           if (!string.IsNullOrEmpty (username))
           {
