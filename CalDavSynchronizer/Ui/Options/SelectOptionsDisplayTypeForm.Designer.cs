@@ -94,7 +94,7 @@ namespace CalDavSynchronizer.Ui.Options
             // 
             this._cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(331, 288);
+            this._cancelButton.Location = new System.Drawing.Point(331, 305);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 5;
@@ -104,7 +104,7 @@ namespace CalDavSynchronizer.Ui.Options
             // _okButton
             // 
             this._okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._okButton.Location = new System.Drawing.Point(250, 288);
+            this._okButton.Location = new System.Drawing.Point(250, 305);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 6;
@@ -125,7 +125,7 @@ namespace CalDavSynchronizer.Ui.Options
             // _posteoTypeRadioButton
             // 
             this._posteoTypeRadioButton.AutoSize = true;
-            this._posteoTypeRadioButton.Location = new System.Drawing.Point(116, 134);
+            this._posteoTypeRadioButton.Location = new System.Drawing.Point(116, 135);
             this._posteoTypeRadioButton.Name = "_posteoTypeRadioButton";
             this._posteoTypeRadioButton.Size = new System.Drawing.Size(58, 17);
             this._posteoTypeRadioButton.TabIndex = 3;
@@ -136,7 +136,7 @@ namespace CalDavSynchronizer.Ui.Options
             // 
             this._logoFruuxPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._logoFruuxPictureBox.Location = new System.Drawing.Point(9, 83);
-            this._logoFruuxPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoFruuxPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoFruuxPictureBox.Name = "_logoFruuxPictureBox";
             this._logoFruuxPictureBox.Size = new System.Drawing.Size(102, 32);
             this._logoFruuxPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -147,7 +147,7 @@ namespace CalDavSynchronizer.Ui.Options
             // 
             this._logoGooglePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._logoGooglePictureBox.Location = new System.Drawing.Point(9, 39);
-            this._logoGooglePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoGooglePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoGooglePictureBox.Name = "_logoGooglePictureBox";
             this._logoGooglePictureBox.Size = new System.Drawing.Size(102, 32);
             this._logoGooglePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -157,8 +157,8 @@ namespace CalDavSynchronizer.Ui.Options
             // _logoPosteoPictureBox
             // 
             this._logoPosteoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._logoPosteoPictureBox.Location = new System.Drawing.Point(9, 126);
-            this._logoPosteoPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoPosteoPictureBox.Location = new System.Drawing.Point(9, 127);
+            this._logoPosteoPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoPosteoPictureBox.Name = "_logoPosteoPictureBox";
             this._logoPosteoPictureBox.Size = new System.Drawing.Size(102, 32);
             this._logoPosteoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -169,7 +169,7 @@ namespace CalDavSynchronizer.Ui.Options
             // 
             this._logoYandexPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._logoYandexPictureBox.Location = new System.Drawing.Point(250, 83);
-            this._logoYandexPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoYandexPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoYandexPictureBox.Name = "_logoYandexPictureBox";
             this._logoYandexPictureBox.Size = new System.Drawing.Size(74, 25);
             this._logoYandexPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -190,7 +190,7 @@ namespace CalDavSynchronizer.Ui.Options
             // 
             this._logoGmxCalendarPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._logoGmxCalendarPictureBox.Location = new System.Drawing.Point(250, 127);
-            this._logoGmxCalendarPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoGmxCalendarPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoGmxCalendarPictureBox.Name = "_logoGmxCalendarPictureBox";
             this._logoGmxCalendarPictureBox.Size = new System.Drawing.Size(74, 32);
             this._logoGmxCalendarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -211,7 +211,7 @@ namespace CalDavSynchronizer.Ui.Options
             // 
             this._logoSarenetPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._logoSarenetPictureBox.Location = new System.Drawing.Point(250, 170);
-            this._logoSarenetPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoSarenetPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoSarenetPictureBox.Name = "_logoSarenetPictureBox";
             this._logoSarenetPictureBox.Size = new System.Drawing.Size(74, 32);
             this._logoSarenetPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -231,8 +231,8 @@ namespace CalDavSynchronizer.Ui.Options
             // _logoLandmarksPictureBox
             // 
             this._logoLandmarksPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._logoLandmarksPictureBox.Location = new System.Drawing.Point(10, 170);
-            this._logoLandmarksPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoLandmarksPictureBox.Location = new System.Drawing.Point(9, 170);
+            this._logoLandmarksPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoLandmarksPictureBox.Name = "_logoLandmarksPictureBox";
             this._logoLandmarksPictureBox.Size = new System.Drawing.Size(102, 32);
             this._logoLandmarksPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -242,7 +242,7 @@ namespace CalDavSynchronizer.Ui.Options
             // _landmarksTypeRadioButton
             // 
             this._landmarksTypeRadioButton.AutoSize = true;
-            this._landmarksTypeRadioButton.Location = new System.Drawing.Point(117, 178);
+            this._landmarksTypeRadioButton.Location = new System.Drawing.Point(116, 178);
             this._landmarksTypeRadioButton.Name = "_landmarksTypeRadioButton";
             this._landmarksTypeRadioButton.Size = new System.Drawing.Size(77, 17);
             this._landmarksTypeRadioButton.TabIndex = 17;
@@ -252,8 +252,8 @@ namespace CalDavSynchronizer.Ui.Options
             // _logoSogoPictureBox
             // 
             this._logoSogoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._logoSogoPictureBox.Location = new System.Drawing.Point(243, 38);
-            this._logoSogoPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoSogoPictureBox.Location = new System.Drawing.Point(241, 38);
+            this._logoSogoPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoSogoPictureBox.Name = "_logoSogoPictureBox";
             this._logoSogoPictureBox.Size = new System.Drawing.Size(82, 41);
             this._logoSogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -263,7 +263,7 @@ namespace CalDavSynchronizer.Ui.Options
             // _sogoTypeRadioButton
             // 
             this._sogoTypeRadioButton.AutoSize = true;
-            this._sogoTypeRadioButton.Location = new System.Drawing.Point(330, 47);
+            this._sogoTypeRadioButton.Location = new System.Drawing.Point(328, 47);
             this._sogoTypeRadioButton.Name = "_sogoTypeRadioButton";
             this._sogoTypeRadioButton.Size = new System.Drawing.Size(54, 17);
             this._sogoTypeRadioButton.TabIndex = 19;
@@ -274,7 +274,7 @@ namespace CalDavSynchronizer.Ui.Options
             // 
             this._logoCozyPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._logoCozyPictureBox.Location = new System.Drawing.Point(9, 214);
-            this._logoCozyPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._logoCozyPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoCozyPictureBox.Name = "_logoCozyPictureBox";
             this._logoCozyPictureBox.Size = new System.Drawing.Size(102, 32);
             this._logoCozyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -294,7 +294,7 @@ namespace CalDavSynchronizer.Ui.Options
             // _nextCloudTypeRadioButton
             // 
             this._nextCloudTypeRadioButton.AutoSize = true;
-            this._nextCloudTypeRadioButton.Location = new System.Drawing.Point(330, 222);
+            this._nextCloudTypeRadioButton.Location = new System.Drawing.Point(328, 222);
             this._nextCloudTypeRadioButton.Name = "_nextCloudTypeRadioButton";
             this._nextCloudTypeRadioButton.Size = new System.Drawing.Size(73, 17);
             this._nextCloudTypeRadioButton.TabIndex = 23;
@@ -315,7 +315,7 @@ namespace CalDavSynchronizer.Ui.Options
             // _logoSwisscomPictureBox
             // 
             this._logoSwisscomPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._logoSwisscomPictureBox.Location = new System.Drawing.Point(224, 251);
+            this._logoSwisscomPictureBox.Location = new System.Drawing.Point(9, 254);
             this._logoSwisscomPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this._logoSwisscomPictureBox.Name = "_logoSwisscomPictureBox";
             this._logoSwisscomPictureBox.Size = new System.Drawing.Size(102, 32);
@@ -326,7 +326,7 @@ namespace CalDavSynchronizer.Ui.Options
             // _swisscomTypeRadioButton
             // 
             this._swisscomTypeRadioButton.AutoSize = true;
-            this._swisscomTypeRadioButton.Location = new System.Drawing.Point(331, 259);
+            this._swisscomTypeRadioButton.Location = new System.Drawing.Point(116, 262);
             this._swisscomTypeRadioButton.Name = "_swisscomTypeRadioButton";
             this._swisscomTypeRadioButton.Size = new System.Drawing.Size(72, 17);
             this._swisscomTypeRadioButton.TabIndex = 25;
@@ -340,7 +340,7 @@ namespace CalDavSynchronizer.Ui.Options
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(418, 323);
+            this.ClientSize = new System.Drawing.Size(418, 340);
             this.Controls.Add(this._logoSwisscomPictureBox);
             this.Controls.Add(this._swisscomTypeRadioButton);
             this.Controls.Add(this._logoNextCloudPictureBox);
