@@ -169,7 +169,7 @@ namespace CalDavSynchronizer.Contracts
         case ProfileType.Nextcloud:
           return "https://server.example/nextcloud/remote.php/dav/";
         case ProfileType.Swisscom:
-            return "https://apigw-test.it.bwns.ch/v2/carddav/";
+            return "";
         default:
           return null;
       }

@@ -13,9 +13,9 @@ namespace CalDavSynchronizer.OAuth.Swisscom
 {
     public class SwisscomOauth
     {
-        private const String AUTH_ENDPOINT = "https://consent.sirius.test1.swisscom.com/c/oauth2/auth";
-        private const String TOKEN_ENDPOINT = "https://apigw-test.it.bwns.ch/oauth2/token";
-        private const String API_HOST = "https://apigw-test.it.bwns.ch";
+        private const String AUTH_ENDPOINT = "https://consent.swisscom.com/c/oauth2/auth";
+        private const String TOKEN_ENDPOINT = "https://api.swisscom.com/oauth2/token";
+        private const String API_HOST = "https://api.swisscom.com";
         private readonly String CLIENT_ID;
         private readonly String CLIENT_SECRET;
 
@@ -66,7 +66,7 @@ namespace CalDavSynchronizer.OAuth.Swisscom
         }
         public Credentials GetCredentials()
         {
-            var response = GetResponse(API_HOST + "/v2/carddav");
+            var response = GetResponse(API_HOST + "/addressbooks/configs");
             var credentials = JsonConvert.DeserializeObject<Credentials>(response);
             return credentials;
 

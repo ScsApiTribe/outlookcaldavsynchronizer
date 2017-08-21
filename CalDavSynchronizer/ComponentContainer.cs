@@ -178,7 +178,8 @@ namespace CalDavSynchronizer
       _availableVersionService = new AvailableVersionService();
       _updateChecker = new UpdateChecker (_availableVersionService, () => _generalOptionsDataAccess.IgnoreUpdatesTilVersion);
       _updateChecker.NewerVersionFound += UpdateChecker_NewerVersionFound;
-      _updateChecker.IsEnabled = generalOptions.ShouldCheckForNewerVersions;
+//      _updateChecker.IsEnabled = generalOptions.ShouldCheckForNewerVersions;
+      _updateChecker.IsEnabled = false;
 
       _reportGarbageCollection = new ReportGarbageCollection (_synchronizationReportRepository, TimeSpan.FromDays (generalOptions.MaxReportAgeInDays));
 

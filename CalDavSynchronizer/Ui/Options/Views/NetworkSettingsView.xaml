@@ -10,9 +10,9 @@
   <DockPanel>
     <GroupBox DockPanel.Dock="Top" Header="Advanced network settings">
       <StackPanel>
-        <CheckBox IsChecked="{Binding CloseConnectionAfterEachRequest}">Close connection after each request</CheckBox>
-        <CheckBox IsChecked="{Binding PreemptiveAuthentication}">Use preemptive authentication</CheckBox>
-        <CheckBox IsChecked="{Binding ForceBasicAuthentication}">Force Basic Authentication</CheckBox>
+        <CheckBox IsChecked="{Binding CloseConnectionAfterEachRequest}" IsEnabled="False">Close connection after each request</CheckBox>
+        <CheckBox IsChecked="{Binding PreemptiveAuthentication}" IsEnabled="False">Use preemptive authentication</CheckBox>
+        <CheckBox IsChecked="{Binding ForceBasicAuthentication}" IsEnabled="False">Force Basic Authentication</CheckBox>
       </StackPanel>
     </GroupBox>
     <GroupBox Header="Proxy settings">

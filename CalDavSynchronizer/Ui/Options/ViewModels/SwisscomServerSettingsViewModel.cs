@@ -31,6 +31,9 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
 {
     internal class SwisscomServerSettingsViewModel : ViewModelBase, IServerSettingsViewModel
     {
+        private const string APP_KEY = "fArWZ9P9e163dbMzCuzJtCEGa5vKOUBf";
+        private const string APP_SECRET = "QVXHXaUwSyVWDyxv";
+
         private static readonly ILog s_logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         private string _calenderUrl;
@@ -132,6 +135,15 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
         public void SetOptions(Contracts.Options options)
         {
             options.PreemptiveAuthentication = false;
+            options.SynchronizationMode = Implementation.SynchronizationMode.MergeOutlookIntoServer;
+            options.ConflictResolution = Implementation.ConflictResolution.Automatic;
+            options.SynchronizationIntervalInMinutes = 30;
+            options.IsChunkedSynchronizationEnabled = true;
+            options.ChunkSize = 100;
+            options.ForceBasicAuthentication = true;
+            options.CloseAfterEachRequest = true;
+            options.EnableChangeTriggeredSynchronization = false;
+
             CalenderUrl = options.CalenderUrl;
             UserName = options.UserName;
             Password = options.Password;
@@ -142,6 +154,15 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
         public void FillOptions(Contracts.Options options)
         {
             options.PreemptiveAuthentication = false;
+            options.SynchronizationMode = Implementation.SynchronizationMode.MergeOutlookIntoServer;
+            options.ConflictResolution = Implementation.ConflictResolution.Automatic;
+            options.SynchronizationIntervalInMinutes = 30;
+            options.IsChunkedSynchronizationEnabled = true;
+            options.ChunkSize = 100;
+            options.ForceBasicAuthentication = true;
+            options.CloseAfterEachRequest = true;
+            options.EnableChangeTriggeredSynchronization = false;
+
             options.CalenderUrl = _calenderUrl;
             options.UserName = _userName;
             options.Password = _password;
@@ -165,7 +186,7 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
             _getAccountSettingsCommand.SetCanExecute(false);
             try
             {
-                var scsOauth = new SwisscomOauth("SInWLXPnP8AADGSYSB0OdUKDxYvI6quy", "0JRbtFLcgKCxQup5");
+                var scsOauth = new SwisscomOauth(APP_KEY, APP_SECRET);
                 var credentials = scsOauth.GetCredentials();
                 UserName = credentials.Username;
                 Password = SecureStringUtility.ToSecureString(credentials.Password);

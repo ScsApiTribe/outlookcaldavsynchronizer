@@ -6,7 +6,7 @@
              xmlns:viewModels="clr-namespace:CalDavSynchronizer.Ui.Options.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{x:Static viewModels:SyncSettingsViewModel.DesignInstance}">
-  <GroupBox Header="Sync settings">
+  <GroupBox Header="Sync settings" IsEnabled="False">
       <Grid DockPanel.Dock="Top">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*" />
@@ -26,7 +26,7 @@
           DisplayMemberPath="Name"
           SelectedValuePath="Value"
           SelectedValue="{Binding SynchronizationMode}"
-          MinWidth="150" Grid.Row="0" Grid.Column="1" />
+          MinWidth="150" Grid.Row="0" Grid.Column="1" IsEnabled="False" />
 
         <TextBlock Grid.Row="1" Grid.Column="0">Conflict Resolution:</TextBlock>
         <ComboBox
@@ -43,9 +43,9 @@
           DisplayMemberPath="Name"
           SelectedValuePath="Value"
           SelectedValue="{Binding SynchronizationIntervalInMinutes}"
-           MinWidth="100" Grid.Row="2" Grid.Column="1" />
+           MinWidth="100" Grid.Row="2" Grid.Column="1" IsEnabled="False" />
 
-      <CheckBox Name="IsChunkedSynchronizationEnabledCheckBox" IsChecked="{Binding IsChunkedSynchronizationEnabled}" Grid.Row="3" Grid.ColumnSpan="2" ToolTip="Executes specific steps of synchronization in chunks, to save memory.">Perform synchronization in chunks</CheckBox>
+      <CheckBox Name="IsChunkedSynchronizationEnabledCheckBox" IsChecked="{Binding IsChunkedSynchronizationEnabled}" Grid.Row="3" Grid.ColumnSpan="2" ToolTip="Executes specific steps of synchronization in chunks, to save memory." IsEnabled="False">Perform synchronization in chunks</CheckBox>
 
       <TextBlock Grid.Row="4" Grid.Column="0">Chunk size:</TextBlock>
       <TextBox IsEnabled="{Binding IsChecked,ElementName=IsChunkedSynchronizationEnabledCheckBox}" Grid.Row="4" Grid.Column="1"  Text="{Binding ChunkSize}"></TextBox>
