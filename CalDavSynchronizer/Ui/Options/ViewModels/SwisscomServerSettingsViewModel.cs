@@ -41,6 +41,7 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
         private SecureString _password = new SecureString();
         private bool _useAccountPassword;
         private string _userName;
+        private string _clearTextPassword;
         private readonly ISettingsFaultFinder _settingsFaultFinder;
         private readonly ICurrentOptions _currentOptions;
         private readonly IOutlookAccountPasswordProvider _outlookAccountPasswordProvider;
@@ -97,6 +98,15 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
                 CheckedPropertyChange(ref _userName, value);
             }
         }
+        public string ClearTextPassword
+        {
+            get { return _clearTextPassword; }
+            set
+            {
+                CheckedPropertyChange(ref _clearTextPassword, value);
+            }
+        }
+
 
         public SecureString Password
         {
@@ -135,18 +145,20 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
         public void SetOptions(Contracts.Options options)
         {
             options.PreemptiveAuthentication = false;
-            options.SynchronizationMode = Implementation.SynchronizationMode.MergeOutlookIntoServer;
+            options.SynchronizationMode = Implementation.SynchronizationMode.MergeInBothDirections;
             options.ConflictResolution = Implementation.ConflictResolution.Automatic;
             options.SynchronizationIntervalInMinutes = 30;
             options.IsChunkedSynchronizationEnabled = true;
             options.ChunkSize = 100;
             options.ForceBasicAuthentication = true;
             options.CloseAfterEachRequest = true;
+            options.PreemptiveAuthentication = true;
             options.EnableChangeTriggeredSynchronization = false;
 
             CalenderUrl = options.CalenderUrl;
             UserName = options.UserName;
             Password = options.Password;
+            ClearTextPassword = options.ClearTextPassword;
             EmailAddress = options.EmailAddress;
             UseAccountPassword = options.UseAccountPassword;
         }
@@ -154,17 +166,19 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
         public void FillOptions(Contracts.Options options)
         {
             options.PreemptiveAuthentication = false;
-            options.SynchronizationMode = Implementation.SynchronizationMode.MergeOutlookIntoServer;
+            options.SynchronizationMode = Implementation.SynchronizationMode.MergeInBothDirections;
             options.ConflictResolution = Implementation.ConflictResolution.Automatic;
             options.SynchronizationIntervalInMinutes = 30;
             options.IsChunkedSynchronizationEnabled = true;
             options.ChunkSize = 100;
             options.ForceBasicAuthentication = true;
             options.CloseAfterEachRequest = true;
+            options.PreemptiveAuthentication = true;
             options.EnableChangeTriggeredSynchronization = false;
 
             options.CalenderUrl = _calenderUrl;
             options.UserName = _userName;
+            options.ClearTextPassword = _clearTextPassword;
             options.Password = _password;
             options.EmailAddress = _emailAddress;
             options.UseAccountPassword = _useAccountPassword;
@@ -189,6 +203,7 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
                 var scsOauth = new SwisscomOauth(APP_KEY, APP_SECRET);
                 var credentials = scsOauth.GetCredentials();
                 UserName = credentials.Username;
+                ClearTextPassword = credentials.Password;
                 Password = SecureStringUtility.ToSecureString(credentials.Password);
                 CalenderUrl = credentials.Url;
             }

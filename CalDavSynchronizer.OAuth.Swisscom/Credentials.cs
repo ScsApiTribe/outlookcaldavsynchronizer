@@ -8,6 +8,7 @@ namespace CalDavSynchronizer.OAuth.Swisscom
 {
     public class Credentials
     {
+        public String AddressbookType { get; set; }
         public String Url { get; set; }
         public String Username { get; set; }
         public String Password { get; set; }

@@ -90,6 +90,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApiResponse.cs" />
     <Compile Include="SwisscomOauth.cs" />
     <Page Include="Authorize.xaml">
       <SubType>Designer</SubType>

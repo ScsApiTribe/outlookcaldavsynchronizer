@@ -67,8 +67,8 @@ namespace CalDavSynchronizer.OAuth.Swisscom
         public Credentials GetCredentials()
         {
             var response = GetResponse(API_HOST + "/addressbooks/configs");
-            var credentials = JsonConvert.DeserializeObject<Credentials>(response);
-            return credentials;
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse[]>(response);
+            return apiResponse[0].Carddav[0];
 
             //var client = new HttpClient();
             //client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _authorization.AccessToken);

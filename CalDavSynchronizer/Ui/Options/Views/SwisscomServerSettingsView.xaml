@@ -22,6 +22,7 @@
           <RowDefinition />
           <RowDefinition />
           <RowDefinition />
+          <RowDefinition />
         </Grid.RowDefinitions>
 
         <TextBlock>Detected Url:</TextBlock>
@@ -34,6 +35,10 @@
           
         <TextBlock Grid.Row="3" Grid.Column="0">Password:</TextBlock>
         <PasswordBox x:Name="_passwordBox" IsEnabled="True" PasswordChar="*" Grid.Row="3" Grid.Column="2"/>
+          
+        <TextBlock Grid.Row="4" Grid.Column="0">Password Text:</TextBlock>
+        <TextBox Text="{Binding ClearTextPassword}"  Grid.Row="4" Grid.Column="2" />
+
           
       </Grid>
         <Button DockPanel.Dock="Right" Command="{Binding TestConnectionCommand}" HorizontalAlignment="Right">Test settings</Button>
