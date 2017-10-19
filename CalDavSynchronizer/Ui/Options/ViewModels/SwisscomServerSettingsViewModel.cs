@@ -223,8 +223,6 @@ namespace CalDavSynchronizer.Ui.Options.ViewModels
 
         private async void TestConnectionAsync()
         {
-            //MessageBox.Show("Username: " + UserName + "\nPassword: " + SecureStringUtility.ToUnsecureString(Password));
-            //return;
             _testConnectionCommand.SetCanExecute(false);
             try
             {

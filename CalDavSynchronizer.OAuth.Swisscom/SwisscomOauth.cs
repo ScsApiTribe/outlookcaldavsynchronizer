@@ -69,38 +69,6 @@ namespace CalDavSynchronizer.OAuth.Swisscom
             var response = GetResponse(API_HOST + "/addressbooks/configs");
             var apiResponse = JsonConvert.DeserializeObject<ApiResponse[]>(response);
             return apiResponse[0].Carddav[0];
-
-            //var client = new HttpClient();
-            //client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _authorization.AccessToken);
-            //var response = await client.GetStringAsync("https://apigw-test.it.bwns.ch/v2/carddav");
-            //var credentials = JsonConvert.DeserializeObject<Credentials>(response);
-            //return credentials;
-
-
-            //var authServer = new AuthorizationServerDescription()
-            //{
-            //    AuthorizationEndpoint = new Uri(AUTH_ENDPOINT),
-            //    TokenEndpoint = new Uri(TOKEN_ENDPOINT)
-            //};
-            //var client = new UserAgentClient(authServer, "SInWLXPnP8AADGSYSB0OdUKDxYvI6quy", "0JRbtFLcgKCxQup5");
-            //var authorizePopup = new Authorize(client);
-            ////authorizePopup.Owner = this;
-            //bool? result = authorizePopup.ShowDialog();
-            //if (result.HasValue && result.Value)
-            //{
-            //    var request = (HttpWebRequest)WebRequest.Create("https://apigw-test.it.bwns.ch/v2/carddav");
-            //    client.AuthorizeRequest(request, authorizePopup.Authorization);
-            //    using (var resourceResponse = request.GetResponse())
-            //    {
-            //        using (var responseStream = new StreamReader(resourceResponse.GetResponseStream()))
-            //        {
-            //            var json = responseStream.ReadToEnd();
-            //            var credentials = JsonConvert.DeserializeObject<Credentials>(json);
-            //            return credentials;
-            //        }
-            //    }
-            //}
-            //return null;
         }
     }
 }
